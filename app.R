@@ -27,7 +27,7 @@ ui <- material_page(
     material_column(width = 1),
     material_column(width = 10,
                     dataTableOutput("tbl", width = "100%"),
-                    HTML('<br><footer align="center"><font color="white">All files sourced from <a href="pianoette.szm.com" target="_blank">pianoette.szm.com</a>. All example files Copyright &copy their respective owners.<br>By using this demo Shiny application, no ownership or rights are implied.</font></footer>')
+                    HTML('<br><footer align="center"><font color="white">All files sourced from <a href="pianoette.szm.com" target="_blank">pianoette.szm.com</a>. All example files Copyright &copy their respective owners.<br>By using this demo Shiny application, no data ownership or rights are implied.</font></footer>')
     ),
     material_column(width = 1)
   )
@@ -38,7 +38,7 @@ ui <- material_page(
 ## SERVER
 server <- function(input, output) {
   sheetmusic <- read.csv("sheetmusic.csv")
-  sm_dt <- datatable(sheetmusic %>% select(artist, songhtml),
+  sm_dt <- datatable(sheetmusic %>% select(artist, pdf_linkhtml),
                      colnames = c("Artist", "Song"),
                      #class = "hover",
                      escape = c(TRUE, FALSE),

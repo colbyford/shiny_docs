@@ -105,7 +105,8 @@ music_set <- pianoette_set %>%
          artist = str_trim(str_to_title(artist), side = "both"),
          filename = str_extract(pdf_link, "(?:[^/][\\d\\w\\.\\-]+)$(?<=(?:.pdf))"),
          filepath = paste0("/sheetmusic/", str_extract(pdf_link, "(?:[^/][\\d\\w\\.\\-]+)$(?<=(?:.pdf))")),
-         songhtml = paste0("<a href=\"", filepath,"\" target=\"_blank\">", song,"</a>")) %>% 
+         songhtml = paste0("<a href=\"", filepath,"\" target=\"_blank\">", song,"</a>"),
+         pdf_linkhtml = paste0("<a href=\"", pdf_link,"\" target=\"_blank\">", song,"</a>")) %>% 
   arrange(artist, song)
 
 
